@@ -1,0 +1,14 @@
+Set-ExecutionPolicy bypass -Force
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install googlechrome -y
+choco install notepadplusplus -y
+Choco install git -y
+Choco install vscode -y
+
+choco install adobereader -y
+choco install 7zip.install -y
+Choco install python -y
+
+get-appxpackage *microsoft.windowscommunicationsapps* | remove-appxpackage
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+Set-ItemProperty -Path REGISTRY::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin -Value 0
